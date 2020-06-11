@@ -37,7 +37,7 @@ namespace API.Controllers
         // FromQuery tells controller that params are in query string (as we have ProductSpecParams) it needs to populate the object
         // from query string, otherwise it looks in body of request
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(
+        public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts(
             [FromQuery] ProductSpecParams productParams)
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(productParams);
